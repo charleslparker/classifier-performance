@@ -5,6 +5,10 @@ function results = processdata(feat, labs, dimred, clsf)
     features = feat(r,:);
     labels = labs(r,:);
     
+    if strcmp(which('trainandtest'), '') ~= 0
+        error('It looks like WEKALab is not installed or on your path');
+    end
+    
     for i = 1:length(dimred)
         for j = 1:cols(labels)
             results{i,j} = zeros(rows(labels), length(clsf));

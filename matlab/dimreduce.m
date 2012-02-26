@@ -8,7 +8,11 @@ function [train test] = dimreduce(trainin, testin, method)
     [c dum k] = princomp(ldata);
     comps = find(cumsum(k)/sum(k) > 0.95, 1);
     comps = min(comps, 100);
-
+    
+    if strcmp(which('compute_mapping'), '') ~= 0
+        error('Cannot find the dimensionality reduction toolbox')
+    end
+    
     if strcmp(method, 'kmeans')
         icent = zeros(comps, cols(ldata));
         for i = 1:comps
