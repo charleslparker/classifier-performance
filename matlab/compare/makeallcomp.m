@@ -14,6 +14,7 @@ function M = makeallcomp(scores)
     count = 1;
     
     for i = 1:length(scores)
+        fprintf('Processing dataset %d...\n', i);
         isc = scores{i};
         for j = 1:rows(isc)
             for k = 1:cols(isc)
