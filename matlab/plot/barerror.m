@@ -1,4 +1,4 @@
-function bs = barerror (X,Y,L,U,width,ycolor,ecolor,varargin)
+function bs = barerror(X, Y, L, U, width, rotate, varargin)
 % BARERROR combines the functions 'bar' and 'errorbar' in a single function. 
 %   It can plot several bars (with their respective errors) per X value
 %   Lables for the x axis can be specified as a cell array of strings as last
@@ -35,12 +35,8 @@ end
 if size(Y,2) ~= size(L,2)
 	error ('Y and Error vectors have different number of columns'); 
 end
-if size(Y,2) ~= length(ycolor)
-	error ('size(Y,2) ~= length(ycolor)'); 
-end
-if size(L,2) ~= length(ecolor)
-	error ('size(L,2) ~= length(ecolor)'); 
-end
+
+ycolor = [0.5 0.5 1; 1 0.5 0.5; 0.5 1 0.5; 0.5 0.5 0.5; 0.5 1 1; 1 1 0.5; 1 0.5 1];
 
 %-- Function
 hold on
@@ -51,15 +47,16 @@ if ~mod(ncol,2)
 	off = [off(1:ceil(length(off)/2)-1), off(1+ ceil(length(off)/2):length(off))]; 
 end
 bs = [];
+
 for h = 1:ncol
 	Xtmp= X(:,1)+ off(h)*(realwidth/2)- sign(off(h))*(~mod(ncol,2)*realwidth/4);
-	b = bar(Xtmp,Y(:,h),width/(2*ncol),ycolor(mod(h,1+length(ycolor))));
-	errorbar(Xtmp,Y(:,h),L(:,h),U(:,h),'LineStyle','none','Color',ecolor(mod(h,1+length(ycolor))));
+	b = bar(Xtmp, Y(:,h), width/(2*ncol), 'FaceColor', ycolor(h,:));
+	errorbar(Xtmp, Y(:,h), L(:,h), U(:,h), 'LineStyle', 'none', 'Color', 'k');
     bs = [bs b];
 end
 
 set(gca,'XTick',X);
-if ~isempty(varargin)
+if ~isempty(varargin) && ~rotate
 	set(gca,'XTickLabel',varargin{1:length(varargin)}(:));
 end
 
