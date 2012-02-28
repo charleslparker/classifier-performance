@@ -21,7 +21,6 @@ function [xc, wsi] = wilson(x,n,alpha)
 %   Original: 2-Jan-2011
 
 
-
 %The error catching is the same as BINOFIT. 
 %Included here, in slightly modified form, so the Statistics Toolbox is 
 %not required for the Wilson Score Interval function. Only the error
