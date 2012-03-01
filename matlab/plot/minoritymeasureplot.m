@@ -1,5 +1,4 @@
-function minoritymeasureplot(comps)
-    names = {'MCC', 'F1-Measure', 'r-Precision', 'H-Measure', 'AUC', 'Average Precision', 'AUK'};
+function minoritymeasureplot(comps, labels)
     cases = getcases(comps, 1);
     vote = sum(cases(:,1:numperf()), 2);
     disagreements = zeros(numperf(), 1);
@@ -12,6 +11,6 @@ function minoritymeasureplot(comps)
         disagreements(i) = dupvote + ddownvote;
     end
     
-    makebar(disagreements, totals, names, true);
-    ylabel('Proportion of cases with minority size = 1')
+    makebar(disagreements, totals, labels, true);
+    ylabel('Proportion of cases with minority size = 1', 'FontSize', 12)
 end
