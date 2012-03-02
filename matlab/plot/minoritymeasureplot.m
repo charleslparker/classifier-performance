@@ -1,4 +1,4 @@
-function minoritymeasureplot(comps, labels)
+function disagreements = minoritymeasureplot(comps, labels)
     cases = getcases(comps, 1);
     vote = sum(cases(:,1:numperf()), 2);
     disagreements = zeros(numperf(), 1);
