@@ -1,8 +1,32 @@
-The files in this directory are related to experiments I have performed regarding measuring the performance of binary classifiers.  These experiments are detailed in the associated ICDM paper that I have included in this directory.
+## Introduction and Preamble
 
-Many of the files in the "Matlab Files" directory are files built for the purposes of analyzing and parsing the results of the large number of classification experiments I did for this research.  They are thus superfluous for anyone who simply wishes to use the performance measures analyzed here on their own classifiers.
+The files in this repo relate to experiments on performance metrics for binary classifiers.  These experiments are detailed in the associated ICDM paper that I have included in this root of this repo.  
 
-As an example of how to use the package to determine the values for the various performance measures, navigate to the `matlab` directory and type, at the Matlab command prompt:
+There are three directories in the project:
+
+* `matlab`: Code used for evaluating classifier performance and performing experiments.
+* `data`: The experimental, results of analysis, and example data.
+* `drtoolbox`: A selection of algorithms from the [dimensionality reduction toolbox for matlab](http://homepage.tudelft.nl/19j49/Matlab_Toolbox_for_Dimensionality_Reduction.html)
+
+The core code is all located in the `matlab` directory.  Many of the files in the `matlab` directory are files built for the purposes of analyzing and parsing the results of the large number of classification experiments I did for this research, and so are not directly useful for performance evaluation of classifiers.
+
+The code computing the performance measures comes mostly from my own head and hands, and is the product of various readings and discussions with colleagues.  I've of course had to make several assumptions while writing the code, and if you find any of these amiss, please let me know (a pull request would of course be the best way to correct a mistake!).
+
+One exception is the H-measure itself.  It was sufficiently complex that I resorted to doing a direct port of Dr. Hand's R code at:
+
+http://www2.imperial.ac.uk/~djhand/R%20CODE%20for%20H%20measure%20of%20classification%20performance.txt
+
+I have broken his function into several functions so that I can reuse some of the computations to compute the other measures, but the outline, and even many of the variable names are much the same.
+
+There are two reasons you may want to use this software.  The first is to use the performance metrics to evaluate your own models.  The second is to replicate my experiments in the included paper.  We'll deal with the first, simpler case below, in the "Evaluation Usage" section.  Following that, we'll discuss the more complex second case in the "Replication Usage" section.
+
+## Evaluation Usage
+
+First, add the root directory of the repository and all subdirectories to the matlab path.
+
+The only function you are likely to need is the function `computeallperf(scores, labels)`.  This function takes a vector of scores and a vector of binary labels, and computes the seven performance metrics from the paper above.
+
+As an example of how to use the package to determine the values for the various performance measures, navigate to the `data` directory and type, at the Matlab command prompt:
 
 ```
 > load perf_examp
