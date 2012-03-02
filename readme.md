@@ -8,7 +8,7 @@ There are three directories in the project:
 * `data`: The experimental, results of analysis, and example data.
 * `drtoolbox`: A selection of algorithms from the [dimensionality reduction toolbox for matlab](http://homepage.tudelft.nl/19j49/Matlab_Toolbox_for_Dimensionality_Reduction.html)
 
-The core code is all located in the `matlab` directory.  Many of the files in the `matlab` directory are files built for the purposes of analyzing and parsing the results of the large number of classification experiments I did for this research, and so are not directly useful for performance evaluation of classifiers.
+The core code is all located in the `matlab` directory.  Many of the files in the `matlab` directory are files built for the purposes of analyzing and parsing the results of the large number of classification experiments I did for this research, and so are not directly useful for performance evaluation of classifiers.  The actual code used to compute the performance metrics is (mostly) in `matlab/evaluate`.
 
 The code computing the performance measures comes mostly from my own head and hands, and is the product of various readings and discussions with colleagues.  I've of course had to make several assumptions while writing the code, and if you find any of these amiss, please let me know (a pull request would of course be the best way to correct a mistake!).
 
@@ -17,6 +17,8 @@ One exception is the H-measure itself.  It was sufficiently complex that I resor
 http://www2.imperial.ac.uk/~djhand/R%20CODE%20for%20H%20measure%20of%20classification%20performance.txt
 
 I have broken his function into several functions so that I can reuse some of the computations to compute the other measures, but the outline, and even many of the variable names are much the same.
+
+Documentation of the library is currently sketchy at best.  I'll be updating that especially as time goes on, the need arises, and people are interested.
 
 There are two reasons you may want to use this software.  The first is to use the performance metrics to evaluate your own models.  The second is to replicate my experiments in the included paper.  We'll deal with the first, simpler case below, in the "Evaluation Usage" section.  Following that, we'll discuss the more complex second case in the "Replication Usage" section.
 
@@ -57,3 +59,7 @@ If you type:
 ```
 
 You will see that each of the measures is higher for the second set of scores than for the first, indicating that the classifier that gave the vector `scores2` for the same test data is superior to the one that gave `scores1`.
+
+## Replication Usage
+
+Coming soon!
