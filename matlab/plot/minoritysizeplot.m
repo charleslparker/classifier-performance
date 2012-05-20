@@ -8,6 +8,6 @@ function minoritysizeplot(comps)
     
     makebar(counts, total, {'0', '1', '2', '3'}, false);
 
-    xlabel('Size of Minority', 'FontSize', 12);
-    ylabel('Proportion of Total Comparisons', 'FontSize', 12);
+    xlabel('Size of Minority', 'FontSize', 14);
+    ylabel('Proportion of Total Comparisons', 'FontSize', 14);
 end

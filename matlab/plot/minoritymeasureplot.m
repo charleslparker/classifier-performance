@@ -12,5 +12,5 @@ function disagreements = minoritymeasureplot(comps, labels)
     end
     
     makebar(disagreements, totals, labels, true);
-    ylabel('Proportion of cases with minority size = 1', 'FontSize', 12)
+    ylabel('Proportion of cases with minority size = 1', 'FontSize', 14)
 end

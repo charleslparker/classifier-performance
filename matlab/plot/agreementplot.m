@@ -24,5 +24,5 @@ function agreementplot(comps, labels)
     top5 = keys(1:5);
     
     makebar(agree(top5), totals(top5), labmat(top5), true);
-    ylabel('Proportion of cases with minority size = 2', 'FontSize', 12);
+    ylabel('Proportion of cases with minority size = 2', 'FontSize', 14);
 end

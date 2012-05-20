@@ -8,5 +8,5 @@ function classifierplot(comps, labels)
     end
     
     makebar(classifier, totals, labels, true);
-    ylabel('Proportion of cases with minority size = 1', 'FontSize', 12);
+    ylabel('Proportion of cases with minority size = 1', 'FontSize', 14);
 end

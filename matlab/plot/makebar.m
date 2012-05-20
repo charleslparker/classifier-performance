@@ -13,7 +13,7 @@ function makebar(trials, totals, labels, rotate, leglabs)
     bs = barerror(X, Y, L, U, 1, rotate, labels);
     
     if rotate
-        xticklabel_rotate(X, 45, labels);
+        xticklabel_rotate(X, 45, labels, 'Fontsize', 14);
     end
 
     if nargin > 4

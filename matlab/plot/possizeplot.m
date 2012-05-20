@@ -29,5 +29,5 @@ function possizeplot(comps, labels)
     end
     
     makebar(disagreements, totals, labels, true, leg);
-    ylabel('Proportion of cases with minority size = 1', 'FontSize', 12)
+    ylabel('Proportion of cases with minority size = 1', 'FontSize', 14)
 end
